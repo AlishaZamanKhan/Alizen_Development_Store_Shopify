@@ -8,9 +8,9 @@
     <time datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: '%Y-%m-%d' }}</time>
 {% endif %}
 
-{% comment %} <img src="{{ article.image | img_url: 'large'}}" alt="{{ article.image.alt }}"  width="{{ article.image.width }}"
+<img src="{{ article.image | img_url: 'large'}}" alt="{{ article.image.alt }}"  width="{{ article.image.width }}"
 height="{{ article.image.height }}">
-<div class="">{{ article.content }}</div> {% endcomment %}
+<div class="">{{ article.content }}</div>
 
 
 {% schema %}
