@@ -18,7 +18,7 @@
                   </thead>
                   <tbody>
                       {% for item in cart.items %}
-                          {% comment %} <tr class="table-row">
+                           <tr class="table-row">
                               <td class="py-4 px-2 flex flex-col justify-center">
                                   <a href="{{ item.url }}">
                                       {% if item.image %}
@@ -28,7 +28,7 @@
                                       {% endif %}
                                   </a>
                               </td>    
-                          </tr> {% endcomment %}
+                          </tr> 
                       {% endfor %}
                   </tbody>
               </table>
