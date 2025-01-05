@@ -1,21 +1,31 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
-    "sections": {
-        "image-carousel": {
-            "type": "image-carousel",
-            "settings": {
-                "image_carousel": "all"
-            }
-
-        },
-        "featured-collection": {
-            "type": "featured-collection",
-            "settings": {
-                "featured_collection": "all"
-            }
-        }
-
+  "sections": {
+    "featured-collection": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Featured Collection",
+        "featured_collection": "all",
+        "number_of_products_to_show": 4
+      }
     },
-    "order": ["image_carousel","featured-collection"]
+    "contact_form_q9YCtB": {
+      "type": "contact-form",
+      "settings": {
+        "title": "Contact Us"
+      }
+    }
+  },
+  "order": [
+    "featured-collection",
+    "contact_form_q9YCtB"
+  ]
 }
-
-
