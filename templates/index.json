@@ -8,21 +8,124 @@
  * ------------------------------------------------------------
  */
 {
-    "sections": {
-        "image-carousel": {
-            "type": "image-carousel",
-            "settings": {
-                "image_carousel": "all"
-            }
-
+  "sections": {
+    "ss_parallax_banner_bB6aDk": {
+      "type": "ss-parallax-banner",
+      "blocks": {
+        "heading_pxHdka": {
+          "type": "heading",
+          "settings": {
+            "heading": "<h2>Nomad Gear</h2>",
+            "heading_custom": false,
+            "heading_font": "josefin_sans_n4",
+            "heading_size": 72,
+            "heading_size_mobile": 30,
+            "heading_height": 130,
+            "heading_mt": 0,
+            "heading_color": "#FFFFFF"
+          }
         },
-        "featured-collection": {
-            "type": "featured-collection",
-            "settings": {
-                "featured_collection": "all"
-            }
+        "text_LajrRw": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Add your own custom content.</p>",
+            "text_custom": false,
+            "text_font": "josefin_sans_n4",
+            "text_size": 18,
+            "text_size_mobile": 16,
+            "text_height": 150,
+            "text_mt": 16,
+            "text_color": "#FFFFFF"
+          }
+        },
+        "button_fTUVk8": {
+          "type": "button",
+          "settings": {
+            "button": "SHOP NOW",
+            "button_url": "",
+            "button_custom": false,
+            "button_font": "josefin_sans_n4",
+            "button_size": 14,
+            "button_size_mobile": 14,
+            "button_height": 100,
+            "button_padding_vertical": 16,
+            "button_padding_vertical_mobile": 16,
+            "button_padding_horizontal": 50,
+            "button_padding_horizontal_mobile": 50,
+            "button_radius": 100,
+            "button_border_thickness": 1,
+            "button_mt": 16,
+            "button_gap": 28,
+            "button_ellipse": false,
+            "button_shadow": false,
+            "button_style": "outline",
+            "button_color": "#FFFFFF",
+            "button_hover_color": "#FFFFFF",
+            "button_bg_color": "#000000",
+            "button_bg_hover_color": "#000000",
+            "button_border_color": "#000000",
+            "button_border_hover_color": "#000000",
+            "button_shadow_color": "#000000"
+          }
         }
-
+      },
+      "block_order": [
+        "heading_pxHdka",
+        "text_LajrRw",
+        "button_fTUVk8"
+      ],
+      "settings": {
+        "parallax": true,
+        "parallax_mobile": false,
+        "banner_height": "adapt_first",
+        "banner_fixed_height": 600,
+        "banner_fixed_height_mobile": 500,
+        "image": "shopify://shop_images/pexels-sanmane-1365425.jpg",
+        "overlay": 0.2,
+        "content_maxwidth": 65,
+        "content_maxwidth_mobile": 100,
+        "content_horizontal_position": "center",
+        "content_horizontal_position_mobile": "center",
+        "content_vertical_position": "center",
+        "content_vertical_position_mobile": "center",
+        "content_padding_vertical": 32,
+        "content_padding_vertical_mobile": 20,
+        "content_padding_horizontal": 20,
+        "content_padding_horizontal_mobile": 20,
+        "overlay_color": "#000000",
+        "background_color": "#FFFFFF",
+        "background_gradient": "",
+        "border_color": "#000000",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_horizontal": 5,
+        "padding_horizontal_mobile": 1.5,
+        "full_width": true,
+        "content_width": 120,
+        "border_thickness": 0,
+        "lazy": true
+      }
     },
-    "order": ["image-carousel","featured-collection"]
+    "featured-collection": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Featured Collection",
+        "featured_collection": "all",
+        "number_of_products_to_show": 4
+      }
+    },
+    "contact_form_q9YCtB": {
+      "type": "contact-form",
+      "settings": {
+        "title": "Contact Us"
+      }
+    }
+  },
+  "order": [
+    "ss_parallax_banner_bB6aDk",
+    "featured-collection",
+    "contact_form_q9YCtB"
+  ]
 }
