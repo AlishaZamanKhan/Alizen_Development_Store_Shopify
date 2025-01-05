@@ -1,5 +1,12 @@
 {
     "sections": {
+        "image-carousel": {
+            "type": "image-carousel",
+            "settings": {
+                "image_carousel": "all"
+            }
+
+        },
         "featured-collection": {
             "type": "featured-collection",
             "settings": {
@@ -8,7 +15,7 @@
         }
 
     },
-    "order": ["featured-collection"]
+    "order": ["image_carousel","featured-collection"]
 }
 
 
