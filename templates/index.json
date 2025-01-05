@@ -15,7 +15,7 @@
         }
 
     },
-    "order": ["image_carousel","featured-collection"]
+    "order": ["image-carousel","featured-collection"]
 }
 
 
