@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  body {
+    background-color: #f8f8f8;
+    color: #333;
+  }
+
+  .size-6 {
+	width: 1.5rem;
+	height: 1.5rem;
+}
+
+
+.icon-button {
+	border: none;
+	background: none;
+	color: #707070;
+	padding: 0;
+}
+.icon-button:hover {
+	color: black;
+	cursor: pointer;
+}
