@@ -10,10 +10,34 @@
 {
   "sections": {
     "hero-slider": {
-        "type": "hero-slider",
-        "settings": {
-            "title": "Hero Slider"
+      "type": "hero-slider",
+      "blocks": {
+        "slide_P8iKPF": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/model-in-sunglasses-and-summer-clothes.jpg",
+            "heading": "",
+            "text": "",
+            "button_text": "",
+            "button_link": ""
+          }
+        },
+        "slide_TJq3Te": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/pexels-ozgomz-868097_1.jpg",
+            "heading": "",
+            "text": "",
+            "button_text": "",
+            "button_link": ""
+          }
         }
+      },
+      "block_order": [
+        "slide_P8iKPF",
+        "slide_TJq3Te"
+      ],
+      "settings": {}
     },
     "featured-collection": {
       "type": "featured-collection",
