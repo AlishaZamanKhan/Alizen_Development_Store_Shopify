@@ -114,6 +114,7 @@
         "image_ycVJtU": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/pexels-ozgomz-868097_1.jpg",
             "url": "",
             "hide_mobile": false
           }
@@ -188,6 +189,7 @@
         "images_position_mobile": "column",
         "images_mt": 32,
         "images_mt_mobile": 24,
+        "main_image": "shopify://shop_images/pexels-sanmane-1365425.jpg",
         "main_image_url": "",
         "main_image_width": 40,
         "small_images_row": 3,
@@ -195,7 +197,7 @@
         "heading_color": "#000000",
         "sub_heading_color": "#000000",
         "image_overlay": "#000000",
-        "background_color": "#FFFFFF",
+        "background_color": "#ffffff",
         "background_gradient": "",
         "border_color": "#000000",
         "margin_top": 0,
