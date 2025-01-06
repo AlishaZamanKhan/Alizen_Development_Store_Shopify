@@ -10,6 +10,8 @@
             width="240px"
             height="240px"
           >
+        <img src="{{ image_mobile | image_url }}" alt="{{ image_mobile.alt }}" width="" height="" {% if lazy %}loading="lazy"{% endif %}>
+    
         </div>
       {% else %}
         {{ 'product-3' | placeholder_svg_tag: '"w-full h-full object-cover border' }}
