@@ -22,7 +22,7 @@
             "heading_size_mobile": 30,
             "heading_height": 130,
             "heading_mt": 0,
-            "heading_color": "#FFFFFF"
+            "heading_color": "#ffffff"
           }
         },
         "text_LajrRw": {
@@ -35,7 +35,7 @@
             "text_size_mobile": 16,
             "text_height": 150,
             "text_mt": 16,
-            "text_color": "#FFFFFF"
+            "text_color": "#ffffff"
           }
         },
         "button_fTUVk8": {
@@ -59,8 +59,8 @@
             "button_ellipse": false,
             "button_shadow": false,
             "button_style": "outline",
-            "button_color": "#FFFFFF",
-            "button_hover_color": "#FFFFFF",
+            "button_color": "#ffffff",
+            "button_hover_color": "#ffffff",
             "button_bg_color": "#000000",
             "button_bg_hover_color": "#000000",
             "button_border_color": "#000000",
@@ -93,7 +93,7 @@
         "content_padding_horizontal": 20,
         "content_padding_horizontal_mobile": 20,
         "overlay_color": "#000000",
-        "background_color": "#FFFFFF",
+        "background_color": "#ffffff",
         "background_gradient": "",
         "border_color": "#000000",
         "margin_top": 0,
@@ -105,6 +105,111 @@
         "full_width": true,
         "content_width": 120,
         "border_thickness": 0,
+        "lazy": true
+      }
+    },
+    "ss_gallery_1_LgnAtF": {
+      "type": "ss-gallery-1",
+      "blocks": {
+        "image_ycVJtU": {
+          "type": "image",
+          "settings": {
+            "url": "",
+            "hide_mobile": false
+          }
+        },
+        "image_PtjPfV": {
+          "type": "image",
+          "settings": {
+            "url": "",
+            "hide_mobile": false
+          }
+        },
+        "image_NmdiJd": {
+          "type": "image",
+          "settings": {
+            "url": "",
+            "hide_mobile": false
+          }
+        },
+        "image_Ymbeaw": {
+          "type": "image",
+          "settings": {
+            "url": "",
+            "hide_mobile": false
+          }
+        },
+        "image_PwUxjC": {
+          "type": "image",
+          "settings": {
+            "url": "",
+            "hide_mobile": false
+          }
+        },
+        "image_nJTtpV": {
+          "type": "image",
+          "settings": {
+            "url": "",
+            "hide_mobile": false
+          }
+        }
+      },
+      "block_order": [
+        "image_ycVJtU",
+        "image_PtjPfV",
+        "image_NmdiJd",
+        "image_Ymbeaw",
+        "image_PwUxjC",
+        "image_nJTtpV"
+      ],
+      "settings": {
+        "heading": "<h2>Travel the World with Nomad Gear</h2>",
+        "heading_custom": false,
+        "heading_font": "josefin_sans_n4",
+        "heading_size": 32,
+        "heading_size_mobile": 28,
+        "heading_height": 130,
+        "heading_align": "center",
+        "heading_align_mobile": "center",
+        "sub_heading": "<p>Let's Go!</p>",
+        "sub_heading_custom": false,
+        "sub_heading_font": "josefin_sans_n4",
+        "sub_heading_size": 16,
+        "sub_heading_size_mobile": 16,
+        "sub_heading_height": 130,
+        "sub_heading_mt": 16,
+        "sub_heading_mt_mobile": 16,
+        "sub_heading_align": "center",
+        "sub_heading_align_mobile": "center",
+        "images_gap": 10,
+        "images_gap_mobile": 10,
+        "images_radius": 4,
+        "images_position": "row",
+        "images_position_mobile": "column",
+        "images_mt": 32,
+        "images_mt_mobile": 24,
+        "main_image_url": "",
+        "main_image_width": 40,
+        "small_images_row": 3,
+        "small_images_row_mobile": 2,
+        "heading_color": "#000000",
+        "sub_heading_color": "#000000",
+        "image_overlay": "#000000",
+        "background_color": "#FFFFFF",
+        "background_gradient": "",
+        "border_color": "#000000",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "margin_horizontal": 0,
+        "margin_horizontal_mobile": 0,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_horizontal": 5,
+        "padding_horizontal_mobile": 1.5,
+        "full_width": false,
+        "content_width": 1200,
+        "border_thickness": 0,
+        "section_radius": 0,
         "lazy": true
       }
     },
@@ -125,6 +230,7 @@
   },
   "order": [
     "ss_parallax_banner_bB6aDk",
+    "ss_gallery_1_LgnAtF",
     "featured-collection",
     "contact_form_q9YCtB"
   ]
