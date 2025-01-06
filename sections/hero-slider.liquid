@@ -1,5 +1,5 @@
 <style>
-    .hero-slider {
+.hero-slider {
   position: relative;
   overflow: hidden;
 }
@@ -15,6 +15,7 @@
   position: absolute;
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
+ 
 }
 
 .hero-slide.active {
@@ -22,19 +23,19 @@
   position: relative;
 }
 
-.hero-content {
+.hero-content h2 {
   text-align: center;
   color: white;
-  background: rgba(0, 0, 0, 0.5);
+  /* background: rgb(5, 5, 5); */
   padding: 20px;
-  border-radius: 5px;
+  border-radius: 25px;
 }
 
 .hero-button {
   display: inline-block;
   margin-top: 10px;
   padding: 10px 20px;
-  background: #ff6f61;
+  background: #070707;
   color: white;
   text-decoration: none;
   border-radius: 5px;
@@ -44,7 +45,10 @@
 
 <div class="hero-slider">
   {% for block in section.blocks %}
-  <div class="hero-slide" style="background-image: url('{{ block.settings.image | image_url: '1920x1080' }}');">
+  <div 
+    class="hero-slide" 
+    style="background-image: url('{{ block.settings.image | image_url }}');"
+  >
     <div class="hero-content">
       <h2>{{ block.settings.heading }}</h2>
       <p>{{ block.settings.text }}</p>
@@ -57,6 +61,7 @@
   </div>
   {% endfor %}
 </div>
+
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const slides = document.querySelectorAll('.hero-slide');
