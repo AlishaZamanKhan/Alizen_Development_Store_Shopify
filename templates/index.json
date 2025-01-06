@@ -10,10 +10,23 @@
 {
   "sections": {
     "hero-slider": {
-        "type": "hero-slider",
-        "settings": {
-            "title": "Hero Slider"
+      "type": "hero-slider",
+      "blocks": {
+        "slide_P8iKPF": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/pexels-sanmane-1365425.jpg",
+            "heading": "",
+            "text": "",
+            "button_text": "",
+            "button_link": ""
+          }
         }
+      },
+      "block_order": [
+        "slide_P8iKPF"
+      ],
+      "settings": {}
     },
     "featured-collection": {
       "type": "featured-collection",
