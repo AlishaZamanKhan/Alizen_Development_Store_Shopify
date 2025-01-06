@@ -15,7 +15,17 @@
         "slide_P8iKPF": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/pexels-sanmane-1365425.jpg",
+            "image": "shopify://shop_images/model-in-sunglasses-and-summer-clothes.jpg",
+            "heading": "",
+            "text": "",
+            "button_text": "",
+            "button_link": ""
+          }
+        },
+        "slide_TJq3Te": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/pexels-ozgomz-868097_1.jpg",
             "heading": "",
             "text": "",
             "button_text": "",
@@ -24,7 +34,8 @@
         }
       },
       "block_order": [
-        "slide_P8iKPF"
+        "slide_P8iKPF",
+        "slide_TJq3Te"
       ],
       "settings": {}
     },
