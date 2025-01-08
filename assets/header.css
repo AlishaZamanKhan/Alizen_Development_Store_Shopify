@@ -23,6 +23,7 @@
 	margin-right: 10px;
 	color: #707070;
 	text-decoration: none;
+	
 }
 
 .desktop-nav-links button{
@@ -52,9 +53,11 @@
 	background-color: white;
 	box-shadow: 0 1px 8px #0000001a;
 	left: 39%;
+	z-index: 1;
 }
 .desktop-nav-dropdown-links-wrapper {
 	padding: 0 20px;
+	
 }
 .desktop-nav-dropdown-links {
 	border-radius: 5px;
@@ -69,6 +72,8 @@
 	background-color: rgb(245, 246, 247);
 	color: black;
 }
+
+
 
 .cart-and-user-menu {
 	display: flex;
@@ -188,15 +193,7 @@
 	text-decoration: none;
 }
 
-.mobile-nav-links button {
-	border-radius: 5px;
-	display: flex;
-	padding: 20px;
-	text-decoration: none;
-	color: #707070;
-	text-decoration: none;
-	background-color: white;
-}
+
 .mobile-nav-links:hover {
 	background-color: rgb(245, 246, 247);
 	color: black;

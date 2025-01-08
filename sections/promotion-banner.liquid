@@ -1,0 +1,77 @@
+<link rel="stylesheet" href="{{ 'promotion-banner.css' | asset_url }}">
+
+
+<     div class="banner-container" style="background-image: url(
+{% if section.settings.banner_image != blank %}
+   {{ section.settings.banner_image | image_url  }} 
+{% else %}
+  'https://i.imghippo.com/files/MNnr3617mk.jpg'
+{% endif %} 
+  );">
+  <div class="banner-content">
+    <div>&nbsp;</div>
+    <d class="banner-text-heading">
+      <h1 class="banner-heading">{{ section.settings.heading_text }}</h1>
+      <h5 class="banner-sub-heading"></h5>
+    </d>
+
+
+    <div class="banner-buttons">
+      {% for block in section.blocks %}
+        {% if block.settings.button_text != blank %}
+          <a href="{{ block.settings.button_url }}" class="banner-button primary">{{ block.settings.button_text }}</a>
+        {% endif %}
+      {% endfor %}
+
+
+    </div>
+
+
+  </div>
+</>
+
+
+{% schema %}
+  {
+    "name": "Promotion Banner",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "banner_image",
+        "label": "Banner Background Image"
+      }, {
+        "type": "text",
+        "id": "heading_text",
+        "label": "Heading Title",
+        "default": "Style Redefined: Discover Your Perfect Look"
+      }, {
+        "type": "text",
+        "id": "heading_subtext",
+        "label": "Sub Heading Title"
+      }
+
+    ],
+    "blocks": [
+      {
+        "type": "button",
+        "name": "Button",
+        "settings": [
+          {
+            "type": "text",
+            "id": "button_text",
+            "label": "Button Text"
+          }, {
+            "type": "url",
+            "id": "button_url",
+            "label": "Button URL"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Promotion Banner"
+      }
+    ]
+  }
+{% endschema %}

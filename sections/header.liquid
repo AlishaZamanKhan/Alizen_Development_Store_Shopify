@@ -17,7 +17,7 @@
         {% for link in main_menu_linklist %}
           {% assign link_handle = link.handle | replace: '-', '_' %}
           {% if link.links != blank %}
-            <div x-data="{ {{ link_handle }}:false }" class="desktop-nav-links">
+            <div x-data="{ {{ link_handle }}:false }" class="desktop-nav-links" >
               <button
                 x-on:click="{{ link_handle }} = !{{ link_handle }}"
                 type="button"
@@ -30,6 +30,9 @@
               <div
                 x-show="{{ link_handle }}"
                 @click.away="{{ link_handle }} = false"
+                class="desktop-nav-links-show"
+                
+               
               >
                 <div class="desktop-nav-dropdown">
                   {% for sublink in link.links %}
@@ -50,7 +53,7 @@
         {% endfor %}
       </nav>
 
-      <!-- CART BUTTON / ACCOUNT LINKS IF ENABLED -->
+      <!-- CART BUTTON / Search buttton / ACCOUNT LINKS IF ENABLED -->
       <div class="cart-and-user-menu">
         <button
           x-on:click="searchBarOpen = true"

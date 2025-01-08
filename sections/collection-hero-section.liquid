@@ -1,0 +1,91 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<link rel="stylesheet" href="{{ 'collection-hero-section.css' | asset_url }}">
+
+<style>
+  .swiper-button-prev,
+  .swiper-button-next {
+    color: black;
+    
+    height: 20px;
+  }
+  .swiper-button-prev::after,
+  .swiper-button-next::after {
+    font-size: 20px;
+  }
+  .swiper-pagination {
+    color: black;
+    bottom: 0 !important;
+  }
+  .swiper-pagination-bullet-active {
+    background: black !important;
+  }
+  .product--details {
+    height: fit-content;
+  }
+  .swiper-custom-property {
+
+  }
+</style>
+
+{% comment %} {% assign collections = collections %} {% endcomment %}
+
+<div class="collections-hero-section">
+  <div class="collection-media-swipper">
+    <div class="swiper swiper-custom-property">
+      <div class="swiper-wrapper">
+        {% for collection in collections %}
+          <div class="swiper-slide">
+            <div class="collection-image-wrapper">
+              {% if collection.featured_image != blank %}
+                {% assign collection_image = collection.featured_image %}
+              {% else %}
+                {% assign collection_image = collection.products.first.image %}
+              {% endif %}
+              {% if collection_image %}
+                <img
+                  class="collection-swiper-image"
+                  src="{{ collection_image |  image_url }}"
+                  alt="{{ collection.title | escape }}"
+                  width="100%"
+                  height="100%"
+                >
+                
+              {% endif %}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const swiper = new Swiper('.swiper', {
+    direction: 'horizontal',
+
+    pagination: {
+      el: '.swiper-pagination',
+    },
+    navigation: {
+      prevEl: '.swiper-button-prev',
+      nextEl: '.swiper-button-next',
+    },
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Collections Hero Section",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Collections Hero Section"
+    }
+  ]
+}
+{% endschema %}

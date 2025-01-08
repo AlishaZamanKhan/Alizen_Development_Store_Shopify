@@ -1,0 +1,63 @@
+.banner-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  /* Ensures the image covers the container */
+  background-position: center;
+  /* Centers the image */
+  background-repeat: no-repeat;
+  /* Prevents the image from repeating */
+  height: 600px;
+  /* This can be adjusted based on your desired height */
+  width: 100%;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+.banner-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 600px;
+  max-width: 800px;
+  text-align: center;
+}
+
+.banner-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 35px;
+  margin-bottom: 20px;
+}
+
+.banner-button {
+  display: inline-block;
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 25px;
+}
+.primary {
+  display: inline-block;
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  padding: 20px 30px;
+  font-size: 1.2rem;
+  font-weight: 300;
+  border-radius: 25px;
+}
+
+.banner-button:hover {
+  background-color: white;
+  color: black;
+  border: 1px solid rgb(241, 240, 240);
+  font-size: 1.2rem;
+  font-weight: 300;
+}

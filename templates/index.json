@@ -1,14 +1,8 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
+
 {
   "sections": {
+    
+    
     "hero-slider": {
       "type": "hero-slider",
       "blocks": {
@@ -47,16 +41,21 @@
         "number_of_products_to_show": 4
       }
     },
-    "contact_form_q9YCtB": {
-      "type": "contact-form",
+    "collection-hero-section": {
+      "type": "collection-hero-section",
       "settings": {
-        "title": "Contact Us"
+        "title": "Collection Hero Section",
+        "collection_hero_section": "all",
+       
       }
-    }
+    },
+    
   },
   "order": [
+
     "hero-slider",
     "featured-collection",
+    "collection-hero-section",
     "contact_form_q9YCtB"
   ]
 }

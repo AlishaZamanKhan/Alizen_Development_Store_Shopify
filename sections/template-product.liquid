@@ -2,11 +2,8 @@
 <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js" defer></script>
 
-{% assign selected_variant = product.selected_or_first_available_variant %}
-
 <style>
-  /* Media Queries for Responsive Design */
-  .hidden-medium {
+.hidden-medium {
     display: none;
   }
 
@@ -258,13 +255,13 @@
   }
 }
 
- 
-
-
-
-  
 
 </style>
+
+
+{% assign selected_variant = product.selected_or_first_available_variant %}
+
+
 
 <div class="page-container">
   <div class="layout-grid layout-grid-medium">
@@ -277,24 +274,7 @@
         {% endfor %}
       </div>
       {% comment %} image carousel is not working {% endcomment %}
-      <div id="carousel-container" class="carousel-container">
-  <div class="swiper">
-    <div class="swiper-wrappe swipper-height">
-      {% for media in product.media %}
-        <div class="swiper-slide">
-          <div class="slide-content">
-            {% render 'product-media', media: media %}
-          </div>
-        </div>
-      {% endfor %}
-    </div>
-    <!-- Pagination -->
-    <div class="swiper-pagination"></div>
-    <!-- Navigation Buttons -->
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
-  </div>
-</div>
+      
 
       
       
@@ -433,13 +413,14 @@
 
     getSelectedOptions() {
       this.options = Array.from(this.querySelectorAll('select'), (select) => select.value);
-      console.log(this.options);
+      console.log("option",this.options);
     }
 
     getVariantJSON() {
       this.variantData = this.variantData || JSON.parse(this.querySelector('[type="application/json"]').textContent);
       return this.variantData;
     }
+    console.log("hello", this.variantData)
 
     getSelectedVariant() {
       this.currentVariant = this.getVariantJSON().find((variant) => {
@@ -482,6 +463,9 @@
 
   customElements.define('variant-selector', VariantSelector);
 
+</script>
+
+<script>
   document.addEventListener('DOMContentLoaded', function () {
     try {
       const swiper = new Swiper('.swiper', {
@@ -502,48 +486,8 @@
   });
 </script>
 
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-  const carouselContainer = document.getElementById('carousel-container');
 
-  // Check screen size and toggle carousel visibility
-  const toggleCarousel = () => {
-    const screenWidth = window.innerWidth;
 
-    // Medium screen range: Hide carousel
-    if (screenWidth >= 768 && screenWidth <= 1024) {
-      carouselContainer.classList.remove('active');
-      if (window.swiperInstance) {
-        window.swiperInstance.destroy(); // Destroy Swiper if initialized
-        window.swiperInstance = null;
-      }
-    } else {
-      carouselContainer.classList.add('active');
-      if (!window.swiperInstance) {
-        // Initialize Swiper if not already initialized
-        window.swiperInstance = new Swiper('.swiper', {
-          loop: true,
-          pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-          },
-          navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-          },
-        });
-      }
-    }
-  };
-
-  // Run on load
-  toggleCarousel();
-
-  // Re-run on window resize
-  window.addEventListener('resize', toggleCarousel);
-});
-
-</script>
 
 {% schema %}
 {
