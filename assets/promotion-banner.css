@@ -27,6 +27,23 @@
   text-align: center;
 }
 
+.banner-heading {
+  padding: 7px 20px;
+  background: hsla(0, 1%, 39%, 0.289);
+  border-radius: 4px;
+  font-size: xx-large;
+}
+
+.banner-sub-heading {
+  padding: 7px 20px;
+  border-radius: 4px;
+  background: hsla(0, 1%, 39%, 0.289);
+  font-size: larger;
+}
+.button_undertext {
+  background: hsla(0, 1%, 39%, 0.289);
+}
+
 .banner-buttons {
   display: flex;
   justify-content: center;

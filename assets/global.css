@@ -16,6 +16,28 @@
 }
 
 
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure wrapper fills the height of the viewport */
+}
+
+.main-content {
+  flex: 1; /* Pushes footer to the bottom when content is short */
+}
+
+
+
+
+
+
 .icon-button {
 	border: none;
 	background: none;

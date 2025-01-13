@@ -1,0 +1,69 @@
+<link rel="stylesheet" href="{{ 'footer.css' | asset_url }}">
+
+<div class="footer">
+  <div class="footer-container">
+    <div class="footer-social-links">
+      <a href="#">
+        <img
+          src="{{ 'fb.png' |  asset_url }}"
+          alt="fb"
+          width="34px"
+          height="34px"
+        >
+      </a>
+      <a href="#"
+        ><img
+          src="{{ 'linkedIn.png' | asset_url }}"
+          alt="linkedIn"
+          width="34px"
+          height="34px"
+      ></a>
+      <a href="#"
+        ><img
+          src="{{ 'tw.png' | asset_url }}"
+          alt="twitter"
+          width="34px"
+          height="34px"
+      ></a>
+      <a href="#"
+        ><img
+          src="{{ 'instagram.png' | asset_url }}"
+          alt="instagram"
+          width="34px"
+          height="34px"
+      ></a>
+    </div>
+    <div class="footer-badge">
+      <img
+        src="{{ 'ISO-Logo-Mark.webp' | asset_url }}"
+        alt="ISO Badge"
+        height="68px"
+        width="223px"
+      >
+    </div>
+
+    <div class="company-info">
+      <ul class="page-links">
+        <li><a href="/blogs">Blogs</a></li>
+        <li><a href="/blogs">About Us</a></li>
+        <li><a href="/blogs">Partners</a></li>
+        <li><a href="/blogs">Services</a></li>
+        <li><a href="/blogs">Career</a></li>
+      </ul>
+      <div class="company-address">
+        <p>
+          Ltd. UK, Company registration number 11338720" <br>
+          EchoLogyx Inc. Florida, USA with EIN 92-0677155. <br>
+          © All rights reserved
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Footer Bar",
+  "settings": []
+}
+{% endschema %}

@@ -1,0 +1,71 @@
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<link rel="stylesheet" href="{{ 'collection-hero-slider.css' | asset_url }}">
+
+<style>
+  .swiper-button-prev,
+  .swiper-button-next {
+    color: rgb(255, 255, 255) !important;
+    font-size: 20px;
+  }
+  .swiper-button-prev::after,
+  .swiper-button-next::after {
+    font-size: 20px;
+  }
+  .swiper-pagination {
+    color: black;
+    bottom: 16px !important;
+  }
+  .swiper-pagination-bullet-active {
+    background: black !important;
+  }
+  .product--details {
+    height: fit-content;
+  }
+</style>
+
+<div class="collection-hero-slider">
+  <div class="collection-swiper">
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        {% for collection in collections %}
+          <div class="swiper-slide">
+            {% if collection.featured_image != blank %}
+              {% assign collection_image = collection.featured_image %}
+            {% else %}
+              {% assign collection_image = collection.products.first.image %}
+            {% endif %}
+            <div
+              class="slide-content"
+              style="background-image: url( {% if collection_image != blank %} {{collection.image | image_url }} {% else %} 'https://i.imghippo.com/files/MNnr3617mk.jpg' {% endif %} )"
+            >
+              <div></div>
+              <div class="collection-link">
+                <div class="collection-tittle">
+                  <h2>{{ collection.title }}</h2>
+                  <a href="{{ collection.url }}" class="shop-now-button">Shop Now</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+      <div class="pagination"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Collection Hero Slider",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Collection Hero Slider"
+    }
+  ]
+}
+{% endschema %}

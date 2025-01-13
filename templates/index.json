@@ -9,7 +9,7 @@
         "slide_P8iKPF": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/model-in-sunglasses-and-summer-clothes.jpg",
+            "image": "shopify://shop_images/pexels-sanmane-1365425.jpg",
             "heading": "",
             "text": "",
             "button_text": "",
@@ -25,11 +25,22 @@
             "button_text": "",
             "button_link": ""
           }
+        },
+        "slide_bzFgw9": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/pexels-rachel-claire-4992652.jpg",
+            "heading": "",
+            "text": "",
+            "button_text": "",
+            "button_link": ""
+          }
         }
       },
       "block_order": [
         "slide_P8iKPF",
-        "slide_TJq3Te"
+        "slide_TJq3Te",
+        "slide_bzFgw9"
       ],
       "settings": {}
     },
