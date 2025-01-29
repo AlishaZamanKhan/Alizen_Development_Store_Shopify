@@ -1,0 +1,113 @@
+<link rel="stylesheet" href="{{ 'ali-header-filter.css' |  asset_url}}">
+
+{% if request.path contains '/tagged/' %}
+  {% assign filter_applied = true %}
+  {% assign split_path = request.path | split: '/tagged/' %}
+  {% assign main_url = split_path[0] %}
+{% else %}
+  {% assign filter_applied = false %}
+  {% assign main_url = request.path %}
+{% endif %}
+
+<div class="ali-header-filter-section">
+  <div class="ali-header-filter-container">
+    <div>
+      <h2 class="ali-header-filter-title {% if filter_applied == false %}text-center{% endif %}">
+        {{ section.settings.filter_header_title }}
+      </h2>
+    </div>
+
+    <div class="ali-filter-container {% if filter_applied %}col-4-grid{% else %}col-3-grid{% endif %}">
+      {% for block in section.blocks %}
+        {% assign single_menu = linklists[block.settings.single_menu] %}
+
+        <div class="ali-single-menu">
+          <button
+            type="button"
+            class="filter-header-flex-icon-button"
+            onclick="toggleDropdown('{{ block.id }}')"
+          >
+            <span>{{ single_menu.title }}</span>
+            {% render 'icon-dropdown' %}
+          </button>
+
+          <div
+            id="dropdown-{{ block.id }}"
+            class="menu-body"
+            style="display: none;"
+          >
+            <div class="menu-body-dropdown">
+              {% for link in single_menu.links %}
+                <div class="dropdown-links">
+                  <a href="{{ main_url }}{{ link.url }}" class="dropdown-links-link">{{ link.title }}</a>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+      {% if filter_applied %}
+        <div class="back-btn">
+          <a href="{{ main_url }}" class="back-btn-link">
+            {% render 'u-turn-icon' %}
+            <span>{{ section.settings['filter_header_back_btn-label'] }}</span>
+          </a>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<script>
+    const blockIds = [
+        {% for block in section.blocks  %}
+            "{{ block.id }}" {%  unless  forloop.last %} , {% endunless %} 
+        {% endfor %}
+    ];
+    function toggleDropdown(id) {
+        blockIds.forEach(blockId => {
+            if(id === blockId){
+                const dropdown = document.getElementById(`dropdown-${id}`);
+                const isVisible = dropdown.style.display === 'block';
+                dropdown.style.display = isVisible ? 'none' : 'block';
+            }
+            else{
+                const dropdown = document.getElementById(`dropdown-${blockId}`);
+                dropdown.style.display = 'none';
+            }
+        })
+    }
+</script>
+
+{% schema %}
+{
+  "name": "Ali Filter Header",
+  "settings": [
+    {
+      "type": "text",
+      "id": "filter_header_title",
+      "label": "Filter Header Title",
+      "default": "Inspiration and Advice"
+    },
+    {
+      "type": "text",
+      "id": "filter_header_back_btn-label",
+      "label": "Back Button Label",
+      "default": "Back To Articles"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "fliter_block",
+      "name": "Header Filter",
+      "settings": [
+        {
+          "type": "link_list",
+          "id": "single_menu",
+          "label": "Single Filter"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

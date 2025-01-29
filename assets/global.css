@@ -1,50 +1,59 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-  }
-  
-  body {
-    background-color: #f8f8f8;
-    color: #333;
-  }
-
-  .size-6 {
-	width: 1.5rem;
-	height: 1.5rem;
-}
-
-
-html, body {
-  height: 100%;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+body {
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: #f9f9f6;
+}
 
 .page-wrapper {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Ensure wrapper fills the height of the viewport */
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 .main-content {
-  flex: 1; /* Pushes footer to the bottom when content is short */
+  flex: 1;
 }
 
-
-
-
-
+.size-6 {
+  width: 1.5rem;
+  height: 1.5rem;
+}
 
 .icon-button {
-	border: none;
-	background: none;
-	color: #707070;
-	padding: 0;
+  border: none;
+  background: none;
+  color: #707070;
+  padding: 0;
 }
 .icon-button:hover {
-	color: black;
-	cursor: pointer;
+  color: black;
+  cursor: pointer;
+}
+
+.flex-icon-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #707070;
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  font-size: medium;
+}
+.flex-icon-button:hover {
+  cursor: pointer;
+  color: black;
 }

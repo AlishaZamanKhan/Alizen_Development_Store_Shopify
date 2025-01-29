@@ -1,118 +1,57 @@
-<style>
-  /****************** BLOG PAGE CSS ******************/
-
-  /* General Spacing */
-  .blog-container {
-    padding: 2rem 0;
-  }
-
-  /* Blog Title */
-  .blog-title {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 2rem;
-  }
-
-  /* Blog Grid */
-  .blog-grid-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-
-  @media (min-width: 768px) {
-    .blog-grid-container {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-
-  /* Blog Card */
-  .blog-card {
-    background-color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    overflow: hidden;
-    padding: 1rem;
-  }
-
-  .blog-card-image {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    background-color: #f3f3f3;
-  }
-
-  .blog-card-content {
-    padding: 1rem;
-  }
-
-  .blog-card-title {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-  }
-
-  .blog-card-excerpt {
-    margin-bottom: 1rem;
-    color: #555;
-  }
-
-  .blog-card-read-more {
-    display: inline-block;
-    color: #007bff;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
-  }
-
-  .blog-card-read-more:hover {
-    color: #0056b3;
-  }
-
-  /* Pagination */
-  .pagination-container {
-    max-width: 1200px;
-    margin: 2rem auto 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  /****************************************************/
-</style>
+<link rel="stylesheet" href="{{ 'template-blog.css' | asset_url }}">
 
 <div class="blog-container">
-  {% paginate blog.articles by section.settings.number_of_blog_posts %}
+  {% paginate blog.articles by 9 %}
     <h1 class="blog-title">{{ blog.title }}</h1>
-
+    <div class="filter-article-count">
+      <div>{% render 'icon-filter' %}</div>
+      <div>{{ blog.articles_count }}</div>
+    </div>
     <div class="blog-grid-container">
       {% for article in blog.articles %}
-        <div class="blog-card">
-          {% if article.image %}
-            <a href="{{ article.url }}">
-              <img
-                class="blog-card-image"
-                src="{{ article.image | image_url }}"
-                alt="{{ article.image.alt }}"
-                height="70px"
-                width="50px"
-              >
-            </a>
-          {% else %}
-            {{ 'image' | placeholder_svg_tag: 'blog-card-image' }}
-          {% endif %}
+        {% comment %}
+          <div class="ali-blog-card-container">
+          </div>
+        {% endcomment %}
+        <div class="ali-blog-card">
+          <div class="ali-article-container">
+            <div class="ali-image-container">
+              {% if article.image %}
+                <a href="{{ article.url }}">
+                  <img
+                    class="ali-blog-card-image"
+                    src="{{ article.image | image_url }}"
+                    alt="{{ article.image.alt }}"
+                    height="70px"
+                    width="50px"
+                  >
+                </a>
+              {% else %}
+                {{ 'image' | placeholder_svg_tag: 'blog-card-image' }}
+              {% endif %}
+            </div>
 
-          <div class="blog-card-content">
-            <h1 class="blog-card-title">{{ article.title }}</h1>
+            <div class="blog-card-content">
+              <h1 class="blog-card-title">{{ article.title }}</h1>
+              <br>
+              {% if article.excerpt.size > 0 %}
+                <p class="blog-card-excerpt">{{ article.excerpt | strip_html | truncatewords: 20 }}</p>
+              {% else %}
+                <p class="blog-card-excerpt">{{ article.content | strip_html | truncatewords: 20 }}</p>
+              {% endif %}
+              <br>
+              <div class="author-details">
+                <img
+                  src="{{ article.user.image | image_url }}"
+                  alt="Author Image"
+                  height="100%"
+                  width="100%"
+                  class="author-image"
+                >
 
-            {% if article.excerpt.size > 0 %}
-              <p class="blog-card-excerpt">{{ article.excerpt | strip_html | truncatewords: 15 }}</p>
-            {% else %}
-              <p class="blog-card-excerpt">{{ article.content | strip_html | truncatewords: 15 }}</p>
-            {% endif %}
-
-            <a href="{{ article.url }}" class="blog-card-read-more">{{ section.settings.blog_read_more }}</a>
+                <p class="author-name">{{ article.author }}</p>
+              </div>
+            </div>
           </div>
         </div>
       {% endfor %}
@@ -127,21 +66,23 @@
 {% schema %}
 {
   "name": "Blog",
-  "settings": [
+  "settings": [],
+  "blocks": [
     {
-      "type": "text",
-      "id": "blog_read_more",
-      "label": "Read more label",
-      "default": "Read more"
-    },
-    {
-      "type": "range",
-      "id": "number_of_blog_posts",
-      "step": 1,
-      "min": 1,
-      "max": 6,
-      "label": "Blog posts per page",
-      "default": 3
+      "type": "blog_page",
+      "name": "Blog Page",
+      "settings": [
+        {
+          "type": "text",
+          "id": "author_name",
+          "label": "Author Name"
+        },
+        {
+          "type": "image_picker",
+          "id": "author_image",
+          "label": "Author Image"
+        }
+      ]
     }
   ]
 }

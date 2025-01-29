@@ -1,5 +1,181 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+<link rel="stylesheet" href="{{ 'featured-blog-slide.css' | asset_url }}">
+
 <section class="featured-blog-slide-section">
   <div class="featured-blog-slide">
-    <div class="featured-blog-slide"></div>
+    <div class="featured-blog-slide-container">
+      <div class="swiper swiper-blog-slider">
+        <div class="swiper-wrapper">
+          {% for block in section.blocks %}
+            <div class="swiper-slide">
+              <div class="large-card">
+                <div class="col col-md-6 col-sm-6 col-12">
+                  <div class="image-container">
+                    {% if block.settings.featured_article_image != blank %}
+                      {% assign featured_image = block.settings.featured_article_image %}
+                    {% else %}
+                      {% assign featured_image = block.settings.featured_article.image %}
+                    {% endif %}
+                    <img
+                      src="{{ featured_image |  image_url  }}"
+                      alt="{{    }}"
+                      width="100%"
+                      height="100%"
+                      loading="lazy"
+                    >
+                  </div>
+                </div>
+                <div class="col col-md-6 col-sm-6 col-12">
+                  <div class="article-container">
+                    <h5>{{ block.settings.featured_article_header }}</h5>
+                    <br>
+
+                    <h2>
+                      {% if block.settings.featured_article.title != blank %}
+                        {{ block.settings.featured_article.title }}
+                      {% else %}
+                        {{ block.settings.featured_article_p }}
+                      {% endif %}
+                    </h2>
+
+                    <br>
+                    <div class="author">
+                      <img
+                        src="{{ block.settings.featured_article_author_image |  image_url  }}"
+                        alt=""
+                        width=""
+                        height=""
+                        loading="lazy"
+                      >
+                      <p class="article-author">
+                        by
+                        <span>
+                          {% if block.settings.featured_article_author_name != blank %}
+                            {{ block.settings.featured_article_author_name }}
+                          {% else %}
+                            {{ block.settings.featured_article.author }}
+                          {% endif %}
+                        </span>
+                      </p>
+                    </div>
+
+                    <br>
+                    <p class="article-content">
+                      {{ block.settings.featured_article.excerpt }}
+                    </p>
+                    <br>
+                    <a href="{{ block.settings.featured_article.url }}" class="read-more">
+                      {{ block.settings.button_text }}
+                    </a>
+
+                    <div class="swiper-arrow-buttons">
+                      <div class="swiper-button-prev1" role="button">
+                        <svg
+                          width="21"
+                          height="20"
+                          viewBox="0 0 21 20"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path d="M20.416 10.0078H1.41602M10.416 18.9878L1.41602 9.98779L10.416 0.987793" stroke="#747474" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                      </div>
+                      <div class="swiper-button-next1" role="button">
+                        <svg
+                          width="21"
+                          height="20"
+                          viewBox="0 0 21 20"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path d="M20.416 10.0078H1.41602M11.416 18.9878L20.416 9.98779L11.416 0.987793" stroke="#747474" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
   </div>
 </section>
+
+<script>
+  (function () {
+    const swiper = new Swiper('.swiper-blog-slider', {
+      direction: 'horizontal',
+      loop: 'true',
+      spaceBetween: 16,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+
+      navigation: {
+        prevEl: '.swiper-button-prev1',
+        nextEl: '.swiper-button-next1',
+      },
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Featured Blog Post Slide",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "featured_article_slider",
+      "name": "Featured Article Slider",
+      "settings": [
+        {
+          "type": "article",
+          "id": "featured_article",
+          "label": "Featured Article"
+        },
+        {
+          "type": "text",
+          "id": "featured_article_header",
+          "label": "Featured Article header",
+          "default": "Spotlight of the Month"
+        },
+        {
+          "type": "text",
+          "id": "featured_article_p",
+          "label": "Featured Article p",
+          "default": "This is the Title"
+        },
+        {
+          "type": "image_picker",
+          "id": "featured_article_image",
+          "label": "Featured Article Image"
+        },
+        {
+          "type": "text",
+          "id": "featured_article_author_name",
+          "label": "Author Name"
+        },
+        {
+          "type": "image_picker",
+          "id": "featured_article_author_image",
+          "label": "Author Image"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text",
+          "default": "Read Article"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Blog Post Slide"
+    }
+  ]
+}
+{% endschema %}

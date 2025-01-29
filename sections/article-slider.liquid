@@ -1,0 +1,159 @@
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+<link rel="stylesheet" href="{{ 'article-slider.css' |  asset_url }}">
+
+<div class="article-slider-container">
+  <div class="article-slider">
+    <div class="article-cards-header">
+      <h1 class="article-cards-header-title">{{ section.settings.section_title }}</h1>
+
+      <div class="all-articles-link">
+        See all articles
+        <div class="all-articles-arrow-svg">
+          <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20.416 10.0078H1.41602M11.416 18.9878L20.416 9.98779L11.416 0.987793" stroke="#747474" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div class="article-cards-slider">
+      <div class="swiper swiper-article-cards-slider">
+        <div class="swiper-wrapper small-swiper-custom-property">
+          {% for block in section.blocks %}
+            <div class="swiper-slide">
+              <div class="article-card">
+                <div class="article-image-container">
+                  {% if block.settings.article_image %}
+                    {% assign author_image = block.settings.article_image %}
+                  {% else %}
+                    {% assign author_image = block.settings.article_link.image %}
+                  {% endif %}
+                  <a href="#"
+                    ><img
+                      src="{{ author_image |  image_url  }}"
+                      class="article-image"
+                      alt="Article Image"
+                      height="100%"
+                      width="100%"
+                  ></a>
+                </div>
+                <div class="article-details-container">
+                  <div class="article-details">
+                    <a href="#">
+                      <h2 class="article-title">
+                        {% if block.settings.article_header != blank %}
+                          {{ block.settings.article_header }}
+                        {% else %}
+                          {{ block.settings.article_link.title }}
+                        {% endif %}
+                      </h2>
+                    </a>
+                    <p class="article-info-content">
+                      {% if block.settings.article_content != blank %}
+                        {{ block.settings.article_content }}
+                      {% else %}
+                        {{ block.settings.article_link.excerpt }}
+                      {% endif %}
+                    </p>
+                    <a class="readmore" href="{{ block.settings.article_link.url }}">
+                      {{- block.settings.button_text -}}
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    const swiper = new Swiper('.swiper-article-cards-slider', {
+      breakpoints: {
+        360: {
+          slidesPerView: 1,
+          spaceBetween: 10,
+        },
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 10,
+        },
+        840: {
+          slidesPerView: 2.2,
+          spaceBetween: 10,
+        },
+        991: {
+          slidesPerView: 2.5,
+          spaceBetween: 10,
+        },
+        1200: {
+          slidesPerView: 3,
+          spaceBetween: 20,
+        },
+        1300: {
+          slidesPerView: 3.5,
+          spaceBetween: 20,
+        },
+        1440: {
+          slidesPerView: 3.8,
+          spaceBetween: 20,
+        },
+      },
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Articles Slider",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "Guides to Grow like a Pro"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "article_slider",
+      "name": "Article Slider",
+      "settings": [
+        {
+          "type": "article",
+          "id": "article_link",
+          "label": "Article Link"
+        },
+        {
+          "type": "image_picker",
+          "id": "article_image",
+          "label": "Article Image"
+        },
+        {
+          "type": "text",
+          "id": "article_header",
+          "label": "Article Header"
+        },
+        {
+          "type": "text",
+          "id": "article_content",
+          "label": "Article Content"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button text",
+          "default": "Read more"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Article Slider"
+    }
+  ]
+}
+{% endschema %}

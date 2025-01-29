@@ -1,8 +1,12 @@
 {
-    "sections": {
-        "template": {
-            "type": "template-blog"
-        }
+  "sections": {
+    "main": {
+      "type": "ali-header-filter"
     },
-    "order": ["template"]
+    
+    "template": {
+      "type": "template-blog"
+    }
+  },
+  "order": ["main", "template"]
 }

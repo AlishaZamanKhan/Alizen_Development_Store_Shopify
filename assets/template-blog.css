@@ -1,0 +1,117 @@
+/****************** BLOG PAGE CSS ******************/
+
+/* General Spacing */
+.blog-container {
+  padding: 2rem 1rem;
+}
+
+/* Blog Title */
+.blog-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Blog Grid */
+.blog-grid-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .blog-grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 991px) {
+  .blog-grid-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Blog Card */
+.ali-blog-card {
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.ali-image-container {
+  line-height: 0;
+  aspect-ratio: 1 / 1;
+  position: relative;
+}
+.ali-blog-card-image {
+  height: 100%;
+  width: auto;
+  object-fit: cover;
+}
+
+.blog-card-content {
+  position: relative;
+  height: 300px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scrollbar-width: none;
+  padding: 22px;
+}
+
+.blog-card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.blog-card-excerpt {
+  color: #212121;
+  font-family: Figtree;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%;
+}
+
+.blog-card-read-more {
+  display: inline-block;
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.blog-card-read-more:hover {
+  color: #0056b3;
+}
+
+.author-details {
+  display: flex;
+}
+
+.author-details .author-image {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+}
+
+.author-details .author-name {
+  color: #000;
+  font-family: Figtree;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%;
+  display: inherit;
+  align-items: center;
+  margin-left: 1rem;
+}
+/* Pagination */
+.pagination-container {
+  max-width: 1200px;
+  margin: 2rem auto 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
