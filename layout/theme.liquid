@@ -34,5 +34,92 @@
         {% section 'footer' %}
       </div>
     </div>
+    <script>
+      const CANARY_ISLANDS_POSTCODES = Array.from(
+  { length: 2000 }, 
+  (_, i) => (Math.floor(i / 1000) === 0 ? '35' : '38') + i.toString().padStart(3, '0')
+);
+
+// Add this script to your theme.liquid file, just before the closing </body> tag
+document.addEventListener('DOMContentLoaded', function() {
+  // Function to validate postcode
+  function isCanaryIslandsPostcode(postcode) {
+    return CANARY_ISLANDS_POSTCODES.some(prefix => postcode.startsWith(prefix));
+  }
+
+  // Function to show error message
+  function showError(message) {
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'zipcode-error';
+    errorDiv.style.color = 'red';
+    errorDiv.style.marginTop = '10px';
+    errorDiv.textContent = message;
+    return errorDiv;
+  }
+
+  // Function to remove existing error messages
+  function removeExistingErrors() {
+    document.querySelectorAll('.zipcode-error').forEach(el => el.remove());
+  }
+
+  // Function to handle zip code validation
+  function validateZipCode(zipCodeField) {
+    const zipCode = zipCodeField.value.trim();
+    removeExistingErrors();
+
+    if (isCanaryIslandsPostcode(zipCode)) {
+      const error = showError('We apologize, but we currently do not deliver to the Canary Islands.');
+      zipCodeField.parentNode.appendChild(error);
+      
+      // Disable checkout button if it exists
+      const checkoutButton = document.querySelector('[name="checkout"], .checkout-button');
+      if (checkoutButton) {
+        checkoutButton.disabled = true;
+        checkoutButton.style.opacity = '0.5';
+      }
+      return false;
+    }
+
+    // Re-enable checkout button
+    const checkoutButton = document.querySelector('[name="checkout"], .checkout-button');
+    if (checkoutButton) {
+      checkoutButton.disabled = false;
+      checkoutButton.style.opacity = '1';
+    }
+    return true;
+  }
+
+  // Function to initialize the validation
+  function initZipCodeValidation() {
+    // Monitor cart page
+    const zipField = document.querySelector('#checkout_shipping_address_zip');
+    if (zipField) {
+      zipField.addEventListener('change', () => validateZipCode(zipField));
+      zipField.addEventListener('blur', () => validateZipCode(zipField));
+    }
+
+    // Monitor shipping calculator on cart page
+    const calculatorZipField = document.querySelector('#address_zip');
+    if (calculatorZipField) {
+      calculatorZipField.addEventListener('change', () => validateZipCode(calculatorZipField));
+      calculatorZipField.addEventListener('blur', () => validateZipCode(calculatorZipField));
+    }
+
+    // Validate on form submission
+    document.addEventListener('submit', function(e) {
+      if (e.target.id === 'checkout_form') {
+        const zipField = e.target.querySelector('#checkout_shipping_address_zip');
+        if (zipField && !validateZipCode(zipField)) {
+          e.preventDefault();
+          window.scrollTo({ top: zipField.offsetTop - 100, behavior: 'smooth' });
+        }
+      }
+    });
+  }
+
+  // Initialize the validation
+  initZipCodeValidation();
+});
+    </script>
   </body>
 </html>
