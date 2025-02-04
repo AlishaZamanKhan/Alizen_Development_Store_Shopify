@@ -8,7 +8,7 @@
     {% assign main_url = split_path[0] %}
     {% assign active_tags = split_path[1] | split: '+' %}
     {% assign current_tag = active_tags[0] | split: '' %}
-
+    {% assign words = current_tag[1] %}
   {% else %}
     {% assign filter_applied = true %}
   {% endif %}
@@ -56,7 +56,6 @@
                       {{ linked_list.title }}
                       {% render 'icon-dropdown' %}
                     </h3>
-
                     <div>
                       {% for link in linked_list.links %}
                         {% assign present_handle = link.url | split: '/tagged/' %}
@@ -163,6 +162,7 @@
   }
 
   function applyFilter(path) {
+    console.log(path);
     const checklist = document.getElementsByClassName('bp-fd-item-link-checkbox');
     let url = path;
     let i = 0;

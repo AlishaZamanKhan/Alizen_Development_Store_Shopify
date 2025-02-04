@@ -1,0 +1,33 @@
+<link rel="stylesheet" href="mega-nav.css">
+
+<div class="a__mega-nav">
+  <div class="a___mega-nav-container">
+    {% assign collection_list = linklists[section.settings['mega-nav-collection']].links %}
+    <ul class="nav-item">
+      {% for item in collection_list %}
+        <li class="a__nav-item">{{ item.title }}</li>
+        {% for block in section.blocks %}
+          <div class="a__nav-dropdown-container">
+            <div class="a__nav-description">description</div>
+          </div>
+          <div class="a__nav-product-container">
+
+          </div>
+        {% endfor %}
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Mega Nav",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "mega-nav-collection",
+      "label": "Add Collection"
+    }
+  ]
+}
+{% endschema %}
