@@ -1,46 +1,41 @@
-
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
-    
-    
     "hero-slider": {
       "type": "hero-slider",
       "blocks": {
-        "slide_P8iKPF": {
-          "type": "slide",
+        "image_3i9Wjh": {
+          "type": "image",
           "settings": {
-            "image": "shopify://shop_images/pexels-sanmane-1365425.jpg",
-            "heading": "",
-            "text": "",
-            "button_text": "",
-            "button_link": ""
+            "image": "shopify://shop_images/FRU0461-2.jpg",
+            "button_text_1": "Shop now",
+            "button_link_1": "",
+            "button_text_2": "New Collection",
+            "button_link_2": ""
           }
         },
-        "slide_TJq3Te": {
-          "type": "slide",
+        "image_FNrEyM": {
+          "type": "image",
           "settings": {
-            "image": "shopify://shop_images/pexels-ozgomz-868097_1.jpg",
-            "heading": "",
-            "text": "",
-            "button_text": "",
-            "button_link": ""
-          }
-        },
-        "slide_bzFgw9": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/pexels-rachel-claire-4992652.jpg",
-            "heading": "",
-            "text": "",
-            "button_text": "",
-            "button_link": ""
+            "image": "shopify://shop_images/FRU0258-1.jpg",
+            "button_text_1": "Shop now",
+            "button_link_1": "",
+            "button_text_2": "New Collection",
+            "button_link_2": ""
           }
         }
       },
       "block_order": [
-        "slide_P8iKPF",
-        "slide_TJq3Te",
-        "slide_bzFgw9"
+        "image_3i9Wjh",
+        "image_FNrEyM"
       ],
       "settings": {}
     },
@@ -52,21 +47,16 @@
         "number_of_products_to_show": 4
       }
     },
-    "collection-hero-section": {
-      "type": "collection-hero-section",
+    "contact_form_q9YCtB": {
+      "type": "contact-form",
       "settings": {
-        "title": "Collection Hero Section",
-        "collection_hero_section": "all",
-       
+        "title": "Contact Us"
       }
-    },
-    
+    }
   },
   "order": [
-
     "hero-slider",
     "featured-collection",
-    "collection-hero-section",
     "contact_form_q9YCtB"
   ]
 }
